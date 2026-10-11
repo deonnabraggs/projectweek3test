@@ -6,26 +6,30 @@ void display_gantt_chart(Event events[], int event_count)
 {
     int i;
 
-    if (events == 0 || event_count <= 0) {
+    if (events == NULL || event_count <= 0) {
         printf("\nNo events to display.\n");
         return;
     }
 
     printf("\n========== GANTT CHART ==========\n\n");
 
+    /* Print process blocks */
+    printf("|");
     for (i = 0; i < event_count; i++) {
         if (events[i].pid == -1)
-            printf("| IDLE ");
+            printf(" IDLE |");
         else
-            printf("| P%d ", events[i].pid);
+            printf(" P%d |", events[i].pid);
     }
 
-    printf("|\n");
+    printf("\n");
 
-    printf("%d", events[0].start_time);
+    /* Print time values */
+    printf("%-4d", events[0].start_time);
 
-    for (i = 0; i < event_count; i++)
-        printf("\t%d", events[i].end_time);
+    for (i = 0; i < event_count; i++) {
+        printf("%-5d", events[i].end_time);
+    }
 
     printf("\n");
 }
