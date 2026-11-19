@@ -1,0 +1,39 @@
+mkdir Merge-Conflict
+cd Merge-Conflict
+
+git init
+git branch -M main
+
+git config user.name "Deonna Braggs"
+git config user.email "deonna@gmail.com"
+
+echo '{ "theme": "light", "version": "1.0.0" }' > config.json
+
+git add config.json
+git commit -m "chore: add application configuration"
+
+git switch -c fix/dark-mode
+
+sed -i 's/light/dark/' config.json
+
+git add config.json
+git commit -m "feat: add dark mode configuration"
+
+git switch main
+
+sed -i 's/light/solarized/' config.json
+
+git add config.json
+git commit -m "chore: update default theme to solarized"
+
+git merge fix/dark-mode
+
+# Open Notepad and resolve the merge conflict
+notepad config.json
+
+git add config.json
+git commit -m "fix: resolve merge conflict"
+
+git status
+
+git log --oneline --graph --all
