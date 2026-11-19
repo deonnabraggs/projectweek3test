@@ -1,0 +1,27 @@
+mkdir GitLab
+cd GitLab
+mkdir Experiment2
+cd Experiment2
+
+git init
+
+git config user.name "Deonna Braggs"
+git config user.email "your-email@example.com"
+
+git switch -c feature/login-page
+
+echo '<html><body><h1>Login</h1></body></html>' > login.html
+
+git add login.html
+
+echo '<input type="text" name="username" placeholder="Enter username">' >> login.html
+
+git add login.html
+
+git commit -m "feat(auth): add login form input"
+
+git branch
+
+git status
+
+git log --oneline --graph --all
