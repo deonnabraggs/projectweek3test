@@ -1,0 +1,147 @@
+Here is the complete **Experiment 4**, with the commands first and then the GitHub website steps in the correct order.
+
+# **Part 1 – Git Bash commands**
+
+**Step 1: Create project and initialise Git**
+
+```
+mkdir campus-portal
+cd campus-portal
+git init
+git branch -M main
+git config user.name "Deonna Braggs"
+git config user.email "your-email@gmail.com"
+```
+
+**Step 2: Create initial commit**
+
+```
+echo "# Campus Portal" > README.md
+git add README.md
+git commit -m "Initial commit"
+```
+
+**Step 3: Create login branch**
+
+```
+git switch -c feature/login-page
+```
+
+**Step 4: Create login page and commit**
+
+```
+echo "<h1>Login Page</h1>" > login.html
+git add login.html
+git commit -m "Add login page"
+```
+
+# **Part 2 – GitHub website**
+
+**Step 5: Create repository**
+
+1. Open [GitHub](https://github.com?utm_source=chatgpt.com).
+2. Sign in.
+3. Click **+ → New repository**.
+4. Repository name: `campus-portal`.
+5. Keep README, `.gitignore` and License unchecked.
+6. Click **Create repository**.
+7. Copy the HTTPS repository URL.
+
+# **Part 3 – Git Bash commands**
+
+**Step 6: Connect local repository to GitHub and push**
+
+Replace the URL with your copied URL.
+
+```
+git remote add origin YOUR-REPOSITORY-URL
+git push -u origin main
+git push -u origin feature/login-page
+```
+
+# **Part 4 – GitHub website**
+
+**Step 7: Create an Issue**
+
+1. Open your repository.
+2. Click **Issues → New issue**.
+3. Fill in:
+
+**Title:**
+
+```
+Implement Login Page Validation
+```
+
+**Description:**
+
+```
+Implement validation for the username field in the login page before submission.
+```
+
+4. Click **Submit new issue**.
+5. Note the Issue number, for example `#1`.
+
+**Step 8: Create a Pull Request**
+
+1. Click **Pull requests → New pull request**.
+2. Select:
+   - Base: `main`
+   - Compare: `feature/login-page`
+3. Click **Create pull request**.
+
+**Title:**
+
+```
+Add Login Page
+```
+
+**Description:**
+
+```
+Added a login page with a username input field.
+
+Closes #1
+```
+
+Replace `#1` with your actual Issue number.
+
+4\. Click **Create pull request**.
+
+**Step 9: Code review**
+
+1. Open the Pull Request.
+2. Go to the Conversation section.
+3. Add this comment:
+
+```
+The login page has been added. Please check the username field before submission.
+```
+
+4\. Click **Comment**.
+
+**Step 10: Merge Pull Request**
+
+1. Click **Merge pull request**.
+2. Click **Confirm merge**.
+
+# **Part 5 – Git Bash commands**
+
+**Step 11: Verify the merge**
+
+```
+git fetch origin
+git switch main
+git pull origin main
+git log --oneline --graph --all
+```
+
+Experiment 4 complete
+
+**Remember:** Issue = task, Pull Request = request to merge, Merge = combine changes into `main`.
+
+If you want, I can:
+
+- Explain how to add user input validation in the login page
+- Describe best practices for managing Git branches and pull requests
+- Detail how to handle GitHub Issues linked to pull requests
